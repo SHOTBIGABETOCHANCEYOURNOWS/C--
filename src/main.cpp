@@ -39,14 +39,14 @@ int main(int argc, char ** argv)
 	
 	if (flags.help)
 	{
-		cout << "Pinecone v" << VERSION_X << "." << VERSION_Y << "." << VERSION_Z << endl;
-		cout << "usage: pinecone [options] [source file] [options]" << endl;
+		cout << "C Minus Minus v" << VERSION_X << "." << VERSION_Y << "." << VERSION_Z << endl;
+		cout << "usage: cmm [options] [source file] [options]" << endl;
 		cout << "options: " << endl;
-		cout << "-v, -version      display the version of Pinecone" << endl;
+		cout << "-v, -version      display the version of C Minus Minus" << endl;
 		cout << "-d, -debug        display debugging info before running the program" << endl;
 		cout << "-r, -run          run the program with the interpreter" << endl;
 		cout << "                    active by default if no transpiling commands are present" << endl;
-		cout << "                    currently, anything after -r is ignored" << endl;
+		cout << "                    anything after -r is ignored" << endl;
 		cout << "-cpp [file]       transpile to C++ and save the output in the given file" << endl;
 		cout << "-bin [file]       transpile, compile with GCC and save the binary" << endl;
 		cout << "-e, -execute      transpile, compile and execute the binary" << endl;
@@ -61,7 +61,7 @@ int main(int argc, char ** argv)
 	
 	if (flags.version)
 	{
-		cout << "Pinecone version " << VERSION_X << "." << VERSION_Y << "." << VERSION_Z << endl;
+		cout << "C Minus Minus" << endl;
 		return 0;
 	}
 	
@@ -69,14 +69,12 @@ int main(int argc, char ** argv)
 	
 	if (flags.inFiles.empty())
 	{
-		cout << "no source file specified" << endl;
-		cout << "try 'pinecone -h' for help" << endl;
+		cout << "no file specified" << endl;
 		return 0;
 	}
 	else if (flags.inFiles.size()>1)
 	{
-		cout << "multiple source files specified, Pinecone does not currently support this" << endl;
-		cout << "try 'pinecone -h' for help" << endl;
+		cout << "multiple source files specified, C Minus Minus does not support this" << endl;
 		return 0;
 	}
 	
