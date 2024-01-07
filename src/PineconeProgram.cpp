@@ -25,9 +25,9 @@ void PineconeProgram::resolveProgram(string inFilename, bool printOutput)
 	AllOperators::init();
 	populatePineconeStdLib();
 	
-	//initialProgramPopulation();
+	initialProgramPopulation();
 	
-	//globalFrame.resolve(printOutput);
+	globalFrame.resolve(printOutput);
 	
 	if (!error.getIfErrorLogged())
 	{
@@ -58,15 +58,15 @@ void PineconeProgram::resolveProgram(string inFilename, bool printOutput)
 			astRoot=AstVoid::make();
 		}
 		
-		/*
+		
 		if (printOutput)
 		{
 			cout << endl << tableStringFromTokens(tokens, "lexer output") << endl;
 		}
-		*/
+		
 	}
 	
-	//astRoot=parseFunction(tokens, 0, tokens.size()-1, Void, Void);
+	astRoot=parseFunction(tokens, 0, tokens.size()-1, Void, Void);
 	
 	if (!error.getIfErrorLogged())
 	{
@@ -86,8 +86,8 @@ void PineconeProgram::resolveProgram(string inFilename, bool printOutput)
 			cout << " │ abstract syntax tree │" << endl;
 			cout << " ╰──────────────────────╯" << endl;
 			cout << astRoot->getString() << endl;
-			//cout << endl << putStringInBox(astRoot->getString(), "abstract syntax tree") << endl;
-			//cout << endl << str::getBoxedString(astRoot->getString(), "abstract syntax tree") << endl;
+			cout << endl << putStringInBox(astRoot->getString(), "abstract syntax tree") << endl;
+			cout << endl << str::getBoxedString(astRoot->getString(), "abstract syntax tree") << endl;
 		}
 	}
 	
@@ -113,7 +113,7 @@ void PineconeProgram::resolveProgram(string inFilename, bool printOutput)
 				cout << " │ action tree │" << endl;
 				cout << " ╰─────────────╯" << endl;
 				cout << actionRoot->getDescription() << endl;
-				//cout << endl << str::getBoxedString(actionRoot->getDescription(), "action tree") << endl;
+				cout << endl << str::getBoxedString(actionRoot->getDescription(), "action tree") << endl;
 			}
 		}
 		catch (PineconeError err)
@@ -122,10 +122,10 @@ void PineconeProgram::resolveProgram(string inFilename, bool printOutput)
 		}
 	}
 	
-	/*if (printOutput)
+	if (printOutput)
 	{
 		cout << endl << "C source code:\n" << astRoot->getCSource() << endl;
-	}*/
+	}
 	
 }
 
