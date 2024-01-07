@@ -3,14 +3,14 @@
 #include "../h/AllOperators.h"
 #include "../h/ErrorHandler.h"
 
-//shared_ptr<AllOperators> ops(nullptr);
+shared_ptr<AllOperators> ops(nullptr);
 AllOperators* ops=nullptr;
 
 Operator opCreate(string textIn, int leftPrecedenceIn, int rightPrecedenceIn, bool overloadableIn);
 
 void AllOperators::init()
 {
-	//ops=shared_ptr<AllOperators>(new AllOperators());
+	ops=shared_ptr<AllOperators>(new AllOperators());
 	ops=new AllOperators();
 }
 
@@ -18,7 +18,7 @@ AllOperators::AllOperators()
 {	
 	#undef DECLARE_OP
 	
-	//#define DECLARE_OP(name, text, left, right, overload) putOpInMap(name);
+	#define DECLARE_OP(name, text, left, right, overload) putOpInMap(name);
 	
 	#define DECLARE_OP(name, text, prece, input, overload) putOpInMap(name);
 	
@@ -71,7 +71,7 @@ bool AllOperators::isCloseBrac(Operator op)
 	return op==closePeren || op==closeSqBrac || op==closeCrBrac;
 }
 
-/*
+
 // this is the only way to make an operator, and should only be called when setting up all the global operators at the top of Operator.cpp
 Operator opCreate(string textIn, int leftPrecedenceIn, int rightPrecedenceIn, bool overloadableIn)
 {
@@ -100,9 +100,9 @@ Operator opCreate(string textIn, int leftPrecedenceIn, int rightPrecedenceIn, bo
 			break;
 	}
 	
-	//operators.push_back(ptr);
+	operators.push_back(ptr);
 	return ptr;
 }
-*/
+
 
 
