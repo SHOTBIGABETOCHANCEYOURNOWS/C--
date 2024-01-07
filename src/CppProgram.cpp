@@ -221,7 +221,7 @@ void CppFuncBase::endln()
 	{
 		// do nothing
 		
-		//source+=indentString("\n", indent, blockLevel);
+		source+=indentString("\n", indent, blockLevel);
 	}
 	else
 	{
@@ -350,7 +350,7 @@ void CppProgram::setup()
 		// my custom
 		"main", "argc", "argv",
 	};
-	/*
+	
 	{
 		"and", "and_eq", "asm", "auto", "bitand", "bitor", "bool", "break", "case", "catch", "char", "class", "const", "const_cast",
 		"continue", "default", "delete", "do", "double", "dynamic_cast", "else", "enum", "explicit", "export", "extern", "false", "float",
@@ -359,7 +359,7 @@ void CppProgram::setup()
 		"struct", "switch", "template", "this", "throw", "true", "try", "typedef", "typeid", "typename", "union", "unsigned", "using",
 		"virtual", "void", "volatile", "wchar_t", "while", "xor", "xor_eq", ""
 	};
-	*/
+	
 		
 	for (auto i: cppReservedWords)
 	{
@@ -453,7 +453,7 @@ string CppProgram::getTypeCode(Type in)
 
 void CppProgram::declareVar(const string& nameIn, Type typeIn, string initialValue)
 {
-	/*
+	
 	CppNameContainer* names=&*activeFunc->namespaceStack.back();
 	
 	while (names)
@@ -463,7 +463,7 @@ void CppProgram::declareVar(const string& nameIn, Type typeIn, string initialVal
 		
 		names=names->getParent();
 	}
-	*/
+	
 	
 	if (isMain())
 	{
@@ -553,7 +553,7 @@ void CppProgram::addFunc(const string& name, vector<std::pair<string, string>> a
 	func->code(contents);
 }
 
-//void CppProgram::pushFunc(const string& name, vector<std::pair<string, string>> args, Type returnType)
+void CppProgram::pushFunc(const string& name, vector<std::pair<string, string>> args, Type returnType)
 void CppProgram::pushFunc(const string& name, const string& cppNameHint, Type leftIn, Type rightIn, Type returnType)
 {
 	if (hasFunc(name))
