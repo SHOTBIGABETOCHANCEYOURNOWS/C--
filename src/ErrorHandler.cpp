@@ -46,10 +46,10 @@ void ErrorHandler::log(string msg, ErrorPriority priority, Token token)
 		errorHasBeenLogged=true;
 	
 	// gcc style
-	//if (token)
-	//	cout << token->getFile() << ":" << token->getLine() << ":" << token->getCharPos() << ": ";
+	if (token)
+		cout << token->getFile() << ":" << token->getLine() << ":" << token->getCharPos() << ": ";
 	
-	//cout << priorityToStr(priority) << ": " << msg << endl;
+	cout << priorityToStr(priority) << ": " << msg << endl;
 	
 	// Pinecone style
 	
